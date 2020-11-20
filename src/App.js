@@ -1,25 +1,58 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Titulo from './components/Titulo'
+import Formulario from './components/Formulario'
+import ListaCitas from './components/ListaCitas'
+
+class App extends React.Component {
+
+  /* 
+  Eliminar
+  state = {
+    listaCitas: []
+  }
+  agregarCita = (cita)=> {
+    this.setState({
+      listaCitas : [...this.state.listaCitas, cita]
+    })
+  } */
+  /* 
+  eliminarCita = (id)=> {
+    const listaCitas = this.state.listaCitas.filter((cita)=>{
+      return cita.id !== id;
+    })
+    this.setState({listaCitas});
+  }
+
+  componentDidMount() {
+    const listaCitasString = localStorage.getItem('listadoCitas');
+    if(listaCitasString){
+      this.setState({
+        listaCitas: JSON.parse(listaCitasString)
+      })
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('listadoCitas', JSON.stringify(this.state.listaCitas))
+  } */
+
+  render() {
+    return (
+      <div className="container">
+        <Titulo title="Reserva de citas medicas"/>
+        <Formulario/>
+        <ListaCitas/>
+        {/* Eliminar */}
+        {/* <Formulario agregarCita={this.agregarCita}/> */}
+        {/* <ListaCitas 
+          listaCitas={this.state.listaCitas} 
+          eliminarCita={this.eliminarCita}/> */}
+      </div>
+    );
+  }
+  
 }
 
 export default App;
