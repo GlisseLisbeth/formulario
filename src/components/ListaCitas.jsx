@@ -32,4 +32,5 @@ const mapStateProps = (state) => {
     lista: state.list
   }
 }
+
 export default connect(mapStateProps)(ListaCitas);

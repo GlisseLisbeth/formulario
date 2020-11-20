@@ -51,7 +51,7 @@ class Formulario extends Component {
     // Enviar la cita al padre para que me agregen en listado
     //this.props.agregarCita(nuevaCita);
     this.props.guardarCita(nuevaCita);
-    //Limpiar formulario
+    //Limpiarr formulario
     this.setState({...stateInicial});
 
     
@@ -139,23 +139,14 @@ class Formulario extends Component {
   }
 }
 
-//Para fines visuales
-
-/* const mapStateProps = state => {
+/* const mapStateProps = (state) => {
   return {
     listado: state.list
   }
 } */
-
-const mapDispatchToProps = (dispatch) => {
-  //cita: cita
-  //El componente va a disparar a la accion
-  //La accion va a pasar al reducer
-
-  return {
-    guardarCita: (cita) => dispatch({type: 'ADD_CITA', cita})
+const mapDispatchProps = (dispatch) => {
+  return{
+    guardarCita:(cita) => dispatch({type: 'ADD_CITA', cita})
   }
 }
-//Connect recibe 2 instancias: En mi formulario envia datos de mi store
-//export default connect(mapStateProps, mapDispatchToProps)(Formulario);
-export default connect(null, mapDispatchToProps)(Formulario);
+export default connect(null, mapDispatchProps)(Formulario);
